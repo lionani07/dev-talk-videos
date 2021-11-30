@@ -2,6 +2,7 @@ package com.github.lionani07.appvideos.service;
 
 import com.github.lionani07.appvideos.model.Video;
 import com.github.lionani07.appvideos.repository.VideoRepository;
+import com.github.lionani07.appvideos.sqs_request.VideoCreationRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -13,15 +14,12 @@ public class VideoService {
 
     private final VideoRepository videoRepository;
 
-    public Video save(Video video) {
-        return this.videoRepository.save(video);
+    public void create(final VideoCreationRequest videoCreationRequest) {
+        this.videoRepository.save(Video.from(videoCreationRequest));
     }
 
     public List<Video> findByUser(Long userId) {
         return this.videoRepository.findByUser(userId);
     }
 
-    public void delete(Long videoId) {
-        this.videoRepository.deleteById(videoId);
-    }
 }
