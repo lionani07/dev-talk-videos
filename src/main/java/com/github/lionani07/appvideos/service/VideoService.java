@@ -20,4 +20,8 @@ public class VideoService {
     public List<Video> findByUser(Long userId) {
         return this.videoRepository.findByUser(userId);
     }
+
+    public void delete(Long videoId) {
+        this.videoRepository.deleteById(videoId);
+    }
 }
