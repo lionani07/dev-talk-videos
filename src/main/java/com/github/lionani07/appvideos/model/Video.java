@@ -33,7 +33,7 @@ public class Video {
         return Video.builder()
                 .userId(videoCreationRequest.getUserId())
                 .name(videoCreationRequest.getName())
-                .visibility(VideoVisibilityEnum.valueOf(videoCreationRequest.getVisibility()))
+                .visibility(VideoVisibilityEnum.valueOf(videoCreationRequest.getVisibility().toUpperCase()))
                 .description(videoCreationRequest.getDescription())
                 .url("http://localhost:8081/videos/" + UUID.randomUUID())
                 .build();
