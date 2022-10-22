@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: pod-videos
+  labels:
+    app: pod-videos
+spec:
+  containers:
+    - name: pod-videos
+      image:  lionani07/lio:app-videos.2.0
+      ports:
+        - containerPort: 8081
