@@ -14,8 +14,8 @@ public class VideoService {
 
     private final VideoRepository videoRepository;
 
-    public void create(final VideoCreationRequest videoCreationRequest) {
-        this.videoRepository.save(Video.from(videoCreationRequest));
+    public Video create(final VideoCreationRequest videoCreationRequest) {
+        return this.videoRepository.save(Video.from(videoCreationRequest));
     }
 
     public List<Video> findByUser(Long userId) {
